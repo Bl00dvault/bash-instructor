@@ -46,3 +46,14 @@ This script takes SSH commands for two redirectors as input and generates an ASC
 Enter the SSH command for Redirector 1: ssh -L 1234:localhost:5678 user@redir1.example.com
 Enter the SSH command for Redirector 2: ssh -L 5678:localhost:8080 user@redir2.example.com -R 1.2.3.4:8080:localhost:5678
 ```
+
+### Example Output
+
+    bloodvault@ubuntu:~/Projects/bluelog$ ./bluelog.sh 
+    Enter the SSH command for Redirector 1: ssh -L 1234:localhost:5678 user@redir1.example.com
+    Enter the SSH command for Redirector 2: ssh -R 1.2.3.4:8080:localhost:5678 user@redir2.example.com
+    [sudo] password for bloodvault: 
+    +----------+-----------------------+---------+------------+
+    | Client     | Redir1                  | Redir2    | Target       |
+    | ()         |  1234:localhost         | :         |  1.2.3.4:8080 |
+    +----------+-----------------------+---------+------------+
